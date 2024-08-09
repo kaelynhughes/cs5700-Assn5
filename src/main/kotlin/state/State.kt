@@ -1,4 +1,5 @@
 package org.example.state
 
-class State {
+abstract class State {
+    abstract fun getValidity(): Boolean
 }
