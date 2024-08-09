@@ -1,12 +1,6 @@
 package org.example.state.binaryState
 
-import org.example.state.integerState.IntegerState
-
-class Valid: BinaryState() {
-    override fun getValidity(): Boolean {
-        return true
-    }
-
+class ValidUnfinished: BinaryState() {
     override fun nextCharacter(char: String): BinaryState {
         require (char.length == 1) {
             "This function takes exactly one character."
