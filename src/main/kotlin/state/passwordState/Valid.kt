@@ -12,7 +12,7 @@ class Valid: PasswordState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        return if (isCapital(char) || isNumber(char) || isNumber(char)) {
+        return if (isCapital(char) || isLower(char) || isNumber(char)) {
             this
         } else {
             CapCharLong()
