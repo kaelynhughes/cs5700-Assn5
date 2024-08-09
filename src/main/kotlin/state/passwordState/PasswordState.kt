@@ -1,7 +1,7 @@
 package org.example.state.passwordState
 
 abstract class PasswordState {
-    open fun detectValidity(): Boolean {
+    open fun getValidity(): Boolean {
         return false
     }
     abstract fun nextCharacter(char: String): PasswordState

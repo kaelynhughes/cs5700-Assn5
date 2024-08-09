@@ -1,7 +1,7 @@
 package org.example.state.passwordState
 
 class Valid: PasswordState() {
-    override fun detectValidity(): Boolean {
+    override fun getValidity(): Boolean {
         return true
     }
     override fun nextCharacter(char: String): PasswordState {

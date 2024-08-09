@@ -12,7 +12,7 @@ class CharLong: PasswordState() {
             "This function takes exactly one character."
         }
         return if (isCapital(char)) {
-            CapCharLong()
+            Valid()
         } else {
             this
         }

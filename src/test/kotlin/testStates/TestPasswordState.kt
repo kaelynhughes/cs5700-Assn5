@@ -95,12 +95,12 @@ class TestPasswordState {
 
         assertIs<CharLong>(state.nextCharacter("a"))
         assertIs<CharLong>(state.nextCharacter("4"))
-        assertIs<CapCharLong>(state.nextCharacter("C"))
+        assertIs<Valid>(state.nextCharacter("C"))
         assertIs<CharLong>(state.nextCharacter("*"))
 
         assertIs<CharLong>(state.nextCharLong("0"))
         assertIs<CharLong>(state.nextCharLong("c"))
-        assertIs<CapCharLong>(state.nextCharLong("C"))
+        assertIs<Valid>(state.nextCharLong("C"))
         assertIs<CharLong>(state.nextCharLong("*"))
 
         assertFails {

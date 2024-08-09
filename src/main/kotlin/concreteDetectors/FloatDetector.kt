@@ -11,7 +11,6 @@ class FloatDetector: Detector() {
         state = Empty()
         for (char in chars) {
             state = state.nextCharacter(char)
-            println(state)
         }
         return state.getValidity()
     }
