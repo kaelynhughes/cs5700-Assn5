@@ -177,6 +177,16 @@ class TestPasswordState {
     fun testValid() {
         val state = Valid()
 
+        assertIs<Valid>(state.nextCharacter("a"))
+        assertIs<Valid>(state.nextCharacter("4"))
+        assertIs<Valid>(state.nextCharacter("C"))
+        assertIs<CapCharLong>(state.nextCharacter("*"))
+
+        assertIs<Valid>(state.nextCharLong("0"))
+        assertIs<Valid>(state.nextCharLong("c"))
+        assertIs<Valid>(state.nextCharLong("C"))
+        assertIs<CapCharLong>(state.nextCharLong("*"))
+
         assertFails {
             state.nextCharacter("")
         }
