@@ -5,6 +5,12 @@ class Part2: EmailState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return if (char == " " || char == "@") {
+            Invalid()
+        } else if (char == ".") {
+            Empty2()
+        } else {
+            this
+        }
     }
 }

@@ -8,7 +8,7 @@ class Empty3: EmailState() {
         return if (char == " " || char == "@" || char == ".") {
             Invalid()
         } else {
-            Part3()
+            Valid()
         }
     }
 }

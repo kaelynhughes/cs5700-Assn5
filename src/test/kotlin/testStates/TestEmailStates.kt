@@ -51,7 +51,7 @@ class TestEmailStates {
     }
     @Test
     fun testEmpty2() {
-        var state = Empty2()
+        val state = Empty2()
 
         assertIs<Invalid>(state.nextCharacter(" "))
         assertIs<Invalid>(state.nextCharacter("@"))
@@ -75,6 +75,17 @@ class TestEmailStates {
     fun testPart2() {
         val state = Part2()
 
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Invalid>(state.nextCharacter("@"))
+        assertIs<Empty2>(state.nextCharacter("."))
+
+        assertIs<Part2>(state.nextCharacter("a"))
+        assertIs<Part2>(state.nextCharacter("T"))
+        assertIs<Part2>(state.nextCharacter("+"))
+        assertIs<Part2>(state.nextCharacter("2"))
+        assertIs<Part2>(state.nextCharacter("6"))
+        assertIs<Part2>(state.nextCharacter("("))
+
         assertFails {
             state.nextCharacter("")
         }
@@ -91,23 +102,12 @@ class TestEmailStates {
         assertIs<Invalid>(state.nextCharacter("@"))
         assertIs<Invalid>(state.nextCharacter("."))
 
-        assertIs<Part3>(state.nextCharacter("a"))
-        assertIs<Part3>(state.nextCharacter("T"))
-        assertIs<Part3>(state.nextCharacter("+"))
-        assertIs<Part3>(state.nextCharacter("2"))
-        assertIs<Part3>(state.nextCharacter("6"))
-        assertIs<Part3>(state.nextCharacter("("))
-
-        assertFails {
-            state.nextCharacter("")
-        }
-        assertFails {
-            state.nextCharacter("ab")
-        }
-    }
-    @Test
-    fun testPart3() {
-        val state = Part3()
+        assertIs<Valid>(state.nextCharacter("a"))
+        assertIs<Valid>(state.nextCharacter("T"))
+        assertIs<Valid>(state.nextCharacter("+"))
+        assertIs<Valid>(state.nextCharacter("2"))
+        assertIs<Valid>(state.nextCharacter("6"))
+        assertIs<Valid>(state.nextCharacter("("))
 
         assertFails {
             state.nextCharacter("")
@@ -139,6 +139,17 @@ class TestEmailStates {
     @Test
     fun testValid() {
         val state = Valid()
+
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Invalid>(state.nextCharacter("@"))
+        assertIs<Invalid>(state.nextCharacter("."))
+
+        assertIs<Valid>(state.nextCharacter("a"))
+        assertIs<Valid>(state.nextCharacter("T"))
+        assertIs<Valid>(state.nextCharacter("+"))
+        assertIs<Valid>(state.nextCharacter("2"))
+        assertIs<Valid>(state.nextCharacter("6"))
+        assertIs<Valid>(state.nextCharacter("("))
 
         assertFails {
             state.nextCharacter("")
