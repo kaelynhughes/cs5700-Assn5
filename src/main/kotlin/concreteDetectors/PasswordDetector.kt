@@ -14,7 +14,6 @@ class PasswordDetector: Detector() {
             } else {
                 state.nextCharLong(char)
             }
-            println(state)
         }
         return state.getValidity()
     }

@@ -77,7 +77,7 @@ class TestEmailStates {
 
         assertIs<Invalid>(state.nextCharacter(" "))
         assertIs<Invalid>(state.nextCharacter("@"))
-        assertIs<Empty2>(state.nextCharacter("."))
+        assertIs<Empty3>(state.nextCharacter("."))
 
         assertIs<Part2>(state.nextCharacter("a"))
         assertIs<Part2>(state.nextCharacter("T"))
