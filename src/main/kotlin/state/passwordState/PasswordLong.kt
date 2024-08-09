@@ -1,6 +1,6 @@
 package org.example.state.passwordState
 
-class Char: PasswordState() {
+class PasswordLong: PasswordState() {
     override fun nextCharacter(char: String): PasswordState {
         TODO("Not yet implemented")
     }

@@ -7,10 +7,16 @@ class TooShort: PasswordState() {
         } else if (isLower(char) || isNumber(char)) {
             TooShort()
         } else {
-            Char()
+            SpecialChar()
         }
     }
     override fun nextCharLong(char: String): PasswordState {
-        TODO("Not yet implemented")
+        return if (isCapital(char)) {
+            CapLong()
+        } else if (isLower(char) || isNumber(char)) {
+            PasswordLong()
+        } else {
+            CharLong()
+        }
     }
 }
