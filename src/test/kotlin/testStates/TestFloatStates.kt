@@ -65,6 +65,11 @@ class TestFloatStates {
     @Test
     fun testPeriodNoDec() {
         val state = PeriodNoDec()
+        assertIs<Invalid>(state.nextCharacter("."))
+        assertIs<Invalid>(state.nextCharacter("$"))
+        assertIs<Valid>(state.nextCharacter("4"))
+        assertIs<Valid>(state.nextCharacter("0"))
+        assertIs<Invalid>(state.nextCharacter("a"))
         assertFails {
             state.nextCharacter("")
         }
