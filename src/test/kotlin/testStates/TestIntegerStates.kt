@@ -1,0 +1,4 @@
+package testStates
+
+class TestIntegerStates {
+}
