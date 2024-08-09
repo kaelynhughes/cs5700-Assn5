@@ -5,6 +5,9 @@ class Valid: FloatState() {
         return true
     }
     override fun nextCharacter(char: String): FloatState {
+        require (char.length == 1) {
+            "This function takes exactly one character."
+        }
         TODO("Not yet implemented")
     }
 }

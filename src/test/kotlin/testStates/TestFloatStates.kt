@@ -32,4 +32,44 @@ class TestFloatStates {
             state.nextCharacter("ab")
         }
     }
+    @Test
+    fun testLeadingZero() {
+        val state = LeadingZero()
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testNumNoPeriod() {
+        val state = NumNoPeriod()
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testPeriodNoDec() {
+        val state = PeriodNoDec()
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testValid() {
+        val state = Valid()
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
 }
