@@ -1,7 +1,5 @@
 package org.example.state.binaryState
 
-import org.example.state.integerState.IntegerState
-
 class Valid: BinaryState() {
     override fun getValidity(): Boolean {
         return true
@@ -11,6 +9,12 @@ class Valid: BinaryState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return if (char == "1") {
+            this
+        } else if (char == "0") {
+            ValidUnfinished()
+        } else {
+            Invalid()
+        }
     }
 }
