@@ -45,4 +45,83 @@ class TestPasswordState {
             state.nextCharacter("ab")
         }
     }
+
+    @Test
+    fun testSpecialChar() {
+        val state = SpecialChar()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testLong() {
+        val state = PasswordLong()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+
+    @Test
+    fun testCharLong() {
+        val state = CharLong()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testCapLong() {
+        val state = CapLong()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testCapChar() {
+        val state = CapChar()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testCapCharLong() {
+        val state = CapCharLong()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testValid() {
+        val state = Valid()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
 }
