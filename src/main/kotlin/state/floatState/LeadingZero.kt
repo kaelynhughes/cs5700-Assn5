@@ -8,6 +8,10 @@ class LeadingZero: FloatState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        if (char == ".") {
+            return PeriodNoDec()
+        } else {
+            return Invalid()
+        }
     }
 }

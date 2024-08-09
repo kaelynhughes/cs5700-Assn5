@@ -35,6 +35,10 @@ class TestFloatStates {
     @Test
     fun testLeadingZero() {
         val state = LeadingZero()
+        assertIs<PeriodNoDec>(state.nextCharacter("."))
+        assertIs<Invalid>(state.nextCharacter("$"))
+        assertIs<Invalid>(state.nextCharacter("4"))
+        assertIs<Invalid>(state.nextCharacter("0"))
         assertFails {
             state.nextCharacter("")
         }
