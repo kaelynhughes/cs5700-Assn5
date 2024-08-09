@@ -5,10 +5,10 @@ class TestIntegerDetector {
     @Test
     fun testIntegerDetector() {
         val detector = IntegerDetector()
-        assertEquals(true, detector.detectValidity("12345"))
-        assertEquals(false, detector.detectValidity("abcdefg"))
-        assertEquals(false, detector.detectValidity("12.34"))
-        assertEquals(false, detector.detectValidity("123."))
-        assertEquals(true, detector.detectValidity("1"))
+        assertTrue { detector.detectValidity("12345") }
+        assertTrue { detector.detectValidity("1") }
+        assertFalse { detector.detectValidity("abcdefg") }
+        assertFalse { detector.detectValidity("12.34") }
+        assertFalse { detector.detectValidity("123.") }
     }
 }

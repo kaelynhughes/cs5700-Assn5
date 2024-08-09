@@ -5,13 +5,13 @@ class TestEmailDetector {
     @Test
     fun testEmailDetector() {
         val detector = EmailDetector()
-        assertEquals(true, detector.detectValidity("a@b.c"))
-        assertEquals(true, detector.detectValidity("joseph.ditton@usu.edu"))
-        assertEquals(true, detector.detectValidity("{}*\$.&\$*(@*\$%&.*&*"))
+        assertTrue { detector.detectValidity("a@b.c") }
+        assertTrue { detector.detectValidity("joseph.ditton@usu.edu") }
+        assertTrue { detector.detectValidity("{}*\$.&\$*(@*\$%&.*&*") }
 
-        assertEquals(false, detector.detectValidity(""))
-        assertEquals(false, detector.detectValidity("@b.c"))
-        assertEquals(false, detector.detectValidity("a@b@c.com"))
-        assertEquals(false, detector.detectValidity("a.b@b.b.c"))
+        assertFalse { detector.detectValidity("") }
+        assertFalse { detector.detectValidity("@b.c") }
+        assertFalse { detector.detectValidity("a@b@c.com") }
+        assertFalse { detector.detectValidity("a.b@b.b.c") }
     }
 }
