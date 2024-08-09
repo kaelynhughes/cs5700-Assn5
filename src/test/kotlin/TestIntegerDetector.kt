@@ -9,5 +9,6 @@ class TestIntegerDetector {
         assertEquals(false, detector.detectValidity("abcdefg"))
         assertEquals(false, detector.detectValidity("12.34"))
         assertEquals(false, detector.detectValidity("123."))
+        assertEquals(true, detector.detectValidity("1"))
     }
 }
