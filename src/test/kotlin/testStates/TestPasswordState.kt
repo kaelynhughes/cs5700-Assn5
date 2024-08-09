@@ -84,6 +84,16 @@ class TestPasswordState {
     fun testCapLong() {
         val state = CapLong()
 
+        assertIs<CapLong>(state.nextCharacter("a"))
+        assertIs<CapLong>(state.nextCharacter("4"))
+        assertIs<CapLong>(state.nextCharacter("C"))
+        assertIs<CapCharLong>(state.nextCharacter("*"))
+
+        assertIs<CapLong>(state.nextCharLong("0"))
+        assertIs<CapLong>(state.nextCharLong("c"))
+        assertIs<CapLong>(state.nextCharLong("C"))
+        assertIs<CapCharLong>(state.nextCharLong("*"))
+
         assertFails {
             state.nextCharacter("")
         }
