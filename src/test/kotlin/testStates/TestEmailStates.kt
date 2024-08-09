@@ -1,6 +1,6 @@
 package testStates
 
-import kotlin.test.Test
+import kotlin.test.*
 import org.example.state.emailState.*
 import kotlin.test.assertFails
 
@@ -8,6 +8,16 @@ class TestEmailStates {
     @Test
     fun testEmpty() {
         val state = Empty()
+
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Invalid>(state.nextCharacter("@"))
+
+        assertIs<Part1>(state.nextCharacter("a"))
+        assertIs<Part1>(state.nextCharacter("T"))
+        assertIs<Part1>(state.nextCharacter("+"))
+        assertIs<Part1>(state.nextCharacter("2"))
+        assertIs<Part1>(state.nextCharacter("6"))
+        assertIs<Part1>(state.nextCharacter("("))
 
         assertFails {
             state.nextCharacter("")

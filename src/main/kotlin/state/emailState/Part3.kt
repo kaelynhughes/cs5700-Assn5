@@ -1,7 +1,7 @@
 package org.example.state.emailState
 
 class Part3: EmailState() {
-    override fun nextCharacter(char: String) {
+    override fun nextCharacter(char: String):EmailState {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
