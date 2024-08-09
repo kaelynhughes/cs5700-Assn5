@@ -63,6 +63,15 @@ class TestEmailStates {
     fun testInvalid() {
         val state = Invalid()
 
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Invalid>(state.nextCharacter("@"))
+        assertIs<Invalid>(state.nextCharacter("a"))
+        assertIs<Invalid>(state.nextCharacter("T"))
+        assertIs<Invalid>(state.nextCharacter("+"))
+        assertIs<Invalid>(state.nextCharacter("2"))
+        assertIs<Invalid>(state.nextCharacter("6"))
+        assertIs<Invalid>(state.nextCharacter("("))
+
         assertFails {
             state.nextCharacter("")
         }

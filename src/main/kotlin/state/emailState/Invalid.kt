@@ -5,6 +5,6 @@ class Invalid: EmailState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return this
     }
 }
