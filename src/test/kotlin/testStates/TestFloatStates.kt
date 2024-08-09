@@ -11,6 +11,12 @@ class TestFloatStates {
         assertIs<LeadingZero>(state.nextCharacter("0"))
         assertIs<NumNoPeriod>(state.nextCharacter("8"))
         assertIs<PeriodNoDec>(state.nextCharacter("."))
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
     }
     @Test
     fun testInvalid() {
@@ -19,5 +25,11 @@ class TestFloatStates {
         assertIs<Invalid>(state.nextCharacter("0"))
         assertIs<Invalid>(state.nextCharacter("6"))
         assertIs<Invalid>(state.nextCharacter("."))
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
     }
 }
