@@ -80,6 +80,11 @@ class TestFloatStates {
     @Test
     fun testValid() {
         val state = Valid()
+        assertIs<Invalid>(state.nextCharacter("."))
+        assertIs<Invalid>(state.nextCharacter("$"))
+        assertIs<Valid>(state.nextCharacter("4"))
+        assertIs<Valid>(state.nextCharacter("0"))
+        assertIs<Invalid>(state.nextCharacter("a"))
         assertFails {
             state.nextCharacter("")
         }
