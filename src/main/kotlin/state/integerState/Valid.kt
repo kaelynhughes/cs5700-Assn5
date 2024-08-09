@@ -5,6 +5,9 @@ class Valid: IntegerState() {
         return true
     }
     override fun nextCharacter(char: String): IntegerState {
+        require (char.length == 1) {
+            "This function takes exactly one character."
+        }
         return if (isInteger(char)) {
             this
         } else {
