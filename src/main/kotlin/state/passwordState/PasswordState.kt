@@ -1,6 +1,9 @@
 package org.example.state.passwordState
 
 abstract class PasswordState {
+    open fun detectValidity(): Boolean {
+        return false
+    }
     abstract fun nextCharacter(char: String): PasswordState
     abstract fun nextCharLong(char: String): PasswordState
     fun isCapital(char: String): Boolean {
