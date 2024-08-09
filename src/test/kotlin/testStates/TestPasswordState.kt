@@ -23,6 +23,12 @@ class TestPasswordState {
         assertFails {
             state.nextCharacter("ab")
         }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
+        }
     }
 
     @Test
@@ -43,6 +49,12 @@ class TestPasswordState {
         }
         assertFails {
             state.nextCharacter("ab")
+        }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
         }
     }
 
@@ -66,6 +78,12 @@ class TestPasswordState {
         assertFails {
             state.nextCharacter("ab")
         }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
+        }
     }
     @Test
     fun testLong() {
@@ -86,6 +104,12 @@ class TestPasswordState {
         }
         assertFails {
             state.nextCharacter("ab")
+        }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
         }
     }
 
@@ -109,6 +133,12 @@ class TestPasswordState {
         assertFails {
             state.nextCharacter("ab")
         }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
+        }
     }
     @Test
     fun testCapLong() {
@@ -129,6 +159,12 @@ class TestPasswordState {
         }
         assertFails {
             state.nextCharacter("ab")
+        }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
         }
     }
     @Test
@@ -151,6 +187,12 @@ class TestPasswordState {
         assertFails {
             state.nextCharacter("ab")
         }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
+        }
     }
     @Test
     fun testCapCharLong() {
@@ -172,6 +214,12 @@ class TestPasswordState {
         assertFails {
             state.nextCharacter("ab")
         }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
+        }
     }
     @Test
     fun testValid() {
@@ -192,6 +240,12 @@ class TestPasswordState {
         }
         assertFails {
             state.nextCharacter("ab")
+        }
+        assertFails {
+            state.nextCharLong("")
+        }
+        assertFails {
+            state.nextCharLong("ab")
         }
     }
 }
