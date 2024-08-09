@@ -6,11 +6,12 @@ import kotlin.test.assertFails
 
 class TestEmailStates {
     @Test
-    fun testEmpty() {
-        val state = Empty()
+    fun testEmpty1() {
+        val state = Empty1()
 
         assertIs<Invalid>(state.nextCharacter(" "))
         assertIs<Invalid>(state.nextCharacter("@"))
+        assertIs<Part1>(state.nextCharacter("."))
 
         assertIs<Part1>(state.nextCharacter("a"))
         assertIs<Part1>(state.nextCharacter("T"))
@@ -30,6 +31,39 @@ class TestEmailStates {
     fun testPart1() {
         val state = Part1()
 
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Empty2>(state.nextCharacter("@"))
+        assertIs<Part1>(state.nextCharacter("."))
+
+        assertIs<Part1>(state.nextCharacter("a"))
+        assertIs<Part1>(state.nextCharacter("T"))
+        assertIs<Part1>(state.nextCharacter("+"))
+        assertIs<Part1>(state.nextCharacter("2"))
+        assertIs<Part1>(state.nextCharacter("6"))
+        assertIs<Part1>(state.nextCharacter("("))
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+    @Test
+    fun testEmpty2() {
+        var state = Empty2()
+
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Invalid>(state.nextCharacter("@"))
+        assertIs<Invalid>(state.nextCharacter("."))
+
+        assertIs<Part2>(state.nextCharacter("a"))
+        assertIs<Part2>(state.nextCharacter("T"))
+        assertIs<Part2>(state.nextCharacter("+"))
+        assertIs<Part2>(state.nextCharacter("2"))
+        assertIs<Part2>(state.nextCharacter("6"))
+        assertIs<Part2>(state.nextCharacter("("))
+
         assertFails {
             state.nextCharacter("")
         }
@@ -40,6 +74,29 @@ class TestEmailStates {
     @Test
     fun testPart2() {
         val state = Part2()
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
+
+    @Test
+    fun testEmpty3() {
+        val state = Empty3()
+
+        assertIs<Invalid>(state.nextCharacter(" "))
+        assertIs<Invalid>(state.nextCharacter("@"))
+        assertIs<Invalid>(state.nextCharacter("."))
+
+        assertIs<Part3>(state.nextCharacter("a"))
+        assertIs<Part3>(state.nextCharacter("T"))
+        assertIs<Part3>(state.nextCharacter("+"))
+        assertIs<Part3>(state.nextCharacter("2"))
+        assertIs<Part3>(state.nextCharacter("6"))
+        assertIs<Part3>(state.nextCharacter("("))
 
         assertFails {
             state.nextCharacter("")
