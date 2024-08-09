@@ -50,6 +50,16 @@ class TestPasswordState {
     fun testSpecialChar() {
         val state = SpecialChar()
 
+        assertIs<SpecialChar>(state.nextCharacter("a"))
+        assertIs<SpecialChar>(state.nextCharacter("4"))
+        assertIs<CapChar>(state.nextCharacter("C"))
+        assertIs<SpecialChar>(state.nextCharacter("*"))
+
+        assertIs<CharLong>(state.nextCharLong("0"))
+        assertIs<CharLong>(state.nextCharLong("c"))
+        assertIs<Valid>(state.nextCharLong("C"))
+        assertIs<CharLong>(state.nextCharLong("*"))
+
         assertFails {
             state.nextCharacter("")
         }

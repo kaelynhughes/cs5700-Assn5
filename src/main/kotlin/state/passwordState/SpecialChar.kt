@@ -5,12 +5,20 @@ class SpecialChar: PasswordState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return if (isCapital(char)) {
+            CapChar()
+        } else {
+            this
+        }
     }
     override fun nextCharLong(char: String): PasswordState {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return if (isCapital(char)) {
+            Valid()
+        } else {
+            CharLong()
+        }
     }
 }
