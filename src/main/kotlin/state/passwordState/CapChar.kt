@@ -5,13 +5,17 @@ class CapChar: PasswordState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO()
+        return this
     }
 
     override fun nextCharLong(char: String): PasswordState {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return if (isCapital(char) || isLower(char) || isNumber(char)) {
+            Valid()
+        } else {
+            CapCharLong()
+        }
     }
 }
