@@ -39,6 +39,7 @@ class TestFloatStates {
         assertIs<Invalid>(state.nextCharacter("$"))
         assertIs<Invalid>(state.nextCharacter("4"))
         assertIs<Invalid>(state.nextCharacter("0"))
+        assertIs<Invalid>(state.nextCharacter("a"))
         assertFails {
             state.nextCharacter("")
         }
@@ -49,6 +50,11 @@ class TestFloatStates {
     @Test
     fun testNumNoPeriod() {
         val state = NumNoPeriod()
+        assertIs<PeriodNoDec>(state.nextCharacter("."))
+        assertIs<Invalid>(state.nextCharacter("$"))
+        assertIs<NumNoPeriod>(state.nextCharacter("4"))
+        assertIs<NumNoPeriod>(state.nextCharacter("0"))
+        assertIs<Invalid>(state.nextCharacter("a"))
         assertFails {
             state.nextCharacter("")
         }

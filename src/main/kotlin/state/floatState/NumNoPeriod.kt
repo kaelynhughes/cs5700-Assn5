@@ -8,6 +8,12 @@ class NumNoPeriod: FloatState() {
         require (char.length == 1) {
             "This function takes exactly one character."
         }
-        TODO("Not yet implemented")
+        return if (isInteger(char)) {
+            this
+        } else if (char == ".") {
+            PeriodNoDec()
+        } else {
+            Invalid()
+        }
     }
 }
