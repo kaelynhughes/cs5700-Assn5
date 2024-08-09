@@ -63,4 +63,24 @@ class TestBinaryStates {
             state.nextCharacter("ab")
         }
     }
+    @Test
+    fun testValidUnfinished() {
+        val state = ValidUnfinished()
+
+        assertIs<Valid>(state.nextCharacter("1"))
+        assertIs<ValidUnfinished>(state.nextCharacter("0"))
+
+        assertIs<Invalid>(state.nextCharacter("7"))
+        assertIs<Invalid>(state.nextCharacter("a"))
+        assertIs<Invalid>(state.nextCharacter("I"))
+        assertIs<Invalid>(state.nextCharacter("*"))
+        assertIs<Invalid>(state.nextCharacter("+"))
+
+        assertFails {
+            state.nextCharacter("")
+        }
+        assertFails {
+            state.nextCharacter("ab")
+        }
+    }
 }
