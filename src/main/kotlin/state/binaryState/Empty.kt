@@ -1,4 +1,12 @@
 package org.example.state.binaryState
 
-class Empty {
+import org.example.state.integerState.IntegerState
+
+class Empty: BinaryState() {
+    override fun nextCharacter(char: String): IntegerState {
+        require (char.length == 1) {
+            "This function takes exactly one character."
+        }
+        TODO("Not yet implemented")
+    }
 }
